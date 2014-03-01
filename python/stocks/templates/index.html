@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Stock History</h1>
+<form action="/stock">
+  <label for="symbol">Stock Symbol<br/>
+    <input type="text" name="symbol" />
+  </label>
+  <label for="start">Start date i.e. 19920101<br/>
+    <input type="text" name="start" />
+  </label>
+  <label for="end">End date i.e. 20130420<br/>
+    <input type="text" name="end" />
+  </label>
+  <input type="submit" value="Search!" />
+</form>
+{% endblock %}

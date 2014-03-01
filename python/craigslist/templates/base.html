@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/jquery/jquery-2.0.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/sorttable/sorttable.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='lib/flatly/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}" />
+
+    <!-- TODO current using below for autocomplete but need to add actual jquery ui stuff later (choose a theme) -->
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <audio id="i_got_the_power" src="{{ url_for('static', filename='snd/i_got_the_power.mp3') }}"></audio>
+
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+  <div id="nav_console">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li><a id="logo-text" href="/"> HurshalsList: A Less Sketch Version of Craigslist</a></li>
+        </ul>
+
+        <ul class="nav pull-right">
+          <li><a href="/about">About</a></li>
+          <li><a href="/">Search</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="padding-bottom: 1.75cm"></div>
+  {% block content %}
+  {% endblock %}
+  </body>
+</html>

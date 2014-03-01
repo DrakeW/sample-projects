@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ symbol }} from {{ start_date }} to {{ end_date }}</h1>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+    {% for column in header %}
+      <th>{{ column }}</th>
+    {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+      <tr>
+      {% for col in row %}    
+        <td>{{ col }}</td>
+      {% endfor %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

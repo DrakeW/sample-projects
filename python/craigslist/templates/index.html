@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+HurshalsList: A Less Sketch CraigsList
+{% endblock %}
+{% block head %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#search-box').keypress(function(event) {
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if (keycode == '13') {
+        //event.preventDefault();
+      }
+    });
+  });
+</script>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <center>
+    <a href="https://www.facebook.com/hurshal.patel?fref=ts" target="_blank"><img src="/static/img/hershey.jpg"/> </a>
+  </center>
+  <br><br>
+  <div class="row">
+    <div class="span1"></div>
+    <div class="span10">
+      <form class="form-search" action="/search">
+        <center> <input type="text" name="query" id="search-box" class="input-large search-query" style="padding: 22px 23px;font-size: 22px; width: 500px; height: 50px; color:black" placeholder="What would you like? Enter to search"></center>
+      </form>
+      <h4> Search: </h4>
+      Bikes
+      <br>
+      Bikes near Berkeley
+      <br>
+      Bikes near Oakland
+      <br>
+      boats near Oakland between $100 and $300
+      <br>
+      books near Palo Alto
+      <br>
+      cars+trucks near Mountain View between $1000 and $3000
+      <br>
+      and many more...
+      <br>
+      List of all categories that are searchable: <br>
+'barter', 'cell phones', 'sporting', 'bikes', 'appliances', 'motorcycle parts &amp; acc', 'cds/dvd/vhs', 'tools', 'video gaming', 'collectibles', 'free stuff', 'antiques', 'all gigs', 'cars+trucks', 'clothes+acc', 'furniture', 'tickets', 'recreational vehicles', 'baby+kids', 'arts+crafts', 'farm+garden', 'all resume', 'toys+games', 'garage sales', 'all housing', 'all event', 'motorcycles', 'all services offered', 'household', 'general', 'books', 'jewelry', 'business', 'boats', 'electronics', 'all for sale / wanted', 'all jobs', 'auto parts', 'all personals', 'all community', 'wanted', 'atvs/utvs/snowmobiles', 'photo+video', 'computers', 'beauty+hlth', 'materials', 'music instr', 'heavy equipment'
+
+    </div>
+    <div class="span1"></div>
+  </div>
+</div>
+{% endblock %}

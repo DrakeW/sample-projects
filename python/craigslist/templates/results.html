@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+HurshalsList: A Less Sketch CraigsList
+{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="span12">
+      <form class="form-search" action="/search">
+        <center> <input type="text" name="query" id="search-box" class="input-large search-query" style="padding: 22px 23px;font-size: 22px; width: 500px; height: 50px; color:black" placeholder="What would you like? Enter to search" value="{{ context.query }}"></center>
+      </form>
+        <h3> search results for <font color="red"> {{ context.query }} </font> </h3>
+        {% for result in context.results %}
+        <a href="{{ result.url }}"> <h4 style="display:inline"> {{ result.index }}.  {{ result.title }} </h4> </a>
+        <br>
+        {{ result.description }}
+        <Br><br>
+        {% endfor %}
+    </div>
+
+
+  </div>
+</div>
+{% endblock %}

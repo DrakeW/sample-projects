@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Movies in Theaters</h1>
+
+<div class="container">
+{% for movie in movies %}
+  <div class="row">
+    <div class="span6">
+      <h2><a href="{{ movie.links.alternate }}">{{ movie.title }}</a> ({{ movie.mpaa_rating }})</h2>
+      <img src="{{ movie.posters.profile }}" />
+      <h4>Release Date: {{ movie.release_dates.theater }}</h4>
+
+      <h3>Critics Score: {{ movie.ratings.critics_score }}</h3>
+      <h3>Audience Score: {{ movie.ratings.audience_score }}</h3>
+      <h3>Critics Rating: {{ movie.ratings.critics_rating }}</h3>
+      <h3>Audience Rating: {{ movie.ratings.audience_rating }}</h3>
+    </div>
+    <div class="span6">
+      <p>{{ movie.synopsis }}</p>
+      <h4>Plan with yo friendz!</h4>
+      <form action="/message">
+        <input type="hidden" name="movie" value="{{ movie.title }}" />
+        <label for="numbers">Enter numbers in the form +15555555555 separated with commas.<br>
+        <input type="text" name="numbers" value="" />
+        </label><br>
+        <textarea rows="5" cols="100" name="message">Yo guys wanna see {{ movie.title }} this weekend? {{ movie.links.alternate }}</textarea><br>
+        <input type="submit" value="Text yo friends" />
+      </form>
+    </div>
+  </div>
+  <hr>
+{% endfor %}
+</div>
+{% endblock %}
