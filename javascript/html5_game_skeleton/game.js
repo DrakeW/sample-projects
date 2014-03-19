@@ -21,15 +21,18 @@ canvas.height = height;
 //---------------------------------------//
 //---------- PRELOADING IMAGES ----------//
 //---------------------------------------//
-// Define images
-var bgImg = new Image();
-bgImg.src = "imgs/background.jpg";
-//
-// ADD MORE IMAGES HERE!!!
-//
-
+// Create mapping from image names to objects
+var imgs = {};
+var addImg = function(name, src) {
+  imgs[name] = new Image();
+  imgs[name].src = src;
+  imgs[name].onload = function() {
+    imageLoaded();
+  }
+  numImages++;
+};
 // Ensure all images have loaded before starting the game
-var numImages = 1; // CHANGE THIS NUMBER ONCE YOU ADD MORE IMAGES!!!
+var numImages = 0;
 var numLoaded = 0;
 var imageLoaded = function() {
   numLoaded++;
@@ -37,13 +40,11 @@ var imageLoaded = function() {
     initGame();
   }
 };
-bgImg.onload = function() {
-  imageLoaded();
-};
+// Define images
+addImg('bg', 'imgs/background.jpg');
 //
-// ADD MORE ONLOAD CALLBACKS HERE!!!
+// ADD MORE IMAGES HERE!!!
 //
-
 
 
 //-----------------------------------------//
@@ -90,7 +91,7 @@ window.addEventListener('keydown', onCanvasKeyDown);
 //------------------------------------//
 var updateGame = function() {
   // Draw the background image
-  context.drawImage(bgImg, 0, 0, width, height);
+  context.drawImage(imgs['bg'], 0, 0, width, height);
 
   //
   // ADD GAME LOGIC HERE!!!
